@@ -30,3 +30,22 @@ li {
   border: 1px solid #dadde1;
   border-radius: 5px;
 }
+overview {
+  margin: 10px;
+}
+
+.weather-temperature img {
+  margin-right: 10px;
+  height: 64px;
+  width: 64px;
+}
+.weather-temperature strong {
+  font-size: 64px;
+  line-height: 1;
+  font-weight: 400;
+}
+.weather-temperature .units {
+  font-size: 16px;
+  position: relative;
+  top: -34px;
+}
