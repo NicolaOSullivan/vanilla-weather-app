@@ -52,3 +52,10 @@ overview {
   position: relative;
   top: -34px;
 }
+.weather-temperature .active {
+  color: #111;
+  cursor: default;
+}
+.weather-temperature .active:hover {
+  text-decoration: none;
+}
