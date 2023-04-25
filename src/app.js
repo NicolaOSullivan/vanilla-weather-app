@@ -66,7 +66,6 @@ function displayForecast(response) {
   forecastElement.innerHTML = forecastHTML;
 }
 function getForecast(coordinates) {
-  console.log(coordinates);
   let lon = coordinates.longitude;
   let lat = coordinates.latitude;
   let apiKey = `cb5f738714fe5atbaff9a9f3oa9f3610`;
