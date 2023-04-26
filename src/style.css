@@ -1,13 +1,15 @@
 body {
   font-family: Arial, Helvetica, sans-serif;
-  background-color: rgba(167, 206, 253, 0.2);
+  background-color: rgba(230, 192, 233, 0.6);
 }
 
 h1 {
-  color: #31255a;
+  color: #ff2ed2;
   font-size: 30px;
   font-weight: 150;
-  line-height: 28px;
+  line-height: 40px;
+  padding-bottom: 20px;
+  margin-left: 20px;
 }
 
 ul {
@@ -17,51 +19,66 @@ ul {
 li {
   list-style: none;
   margin: 0;
-  color: #75b4e3;
+  color: #ff2ed2;
   padding: 3px;
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
+  margin-left: 30px;
 }
 li::first-letter {
   text-transform: capitalize;
 }
+.form-control {
+  color: #883a92;
+  background-color: rgba(230, 192, 233, 0.3);
+}
+.form-control:focus {
+  border: none;
+  background-color: rgba(230, 192, 233, 0.3);
+  box-shadow: 0 0 0 0.25rem rgba(255, 46, 210, 0.6);
+}
+.btn-primary {
+  color: #fff;
+  background-color: #883a92;
+  border-color: #883a92;
+}
+.btn-primary:hover {
+  color: #883a92;
+  background: #e6c0e9;
+  border: 0;
+}
 
 .weather-app-wrapper {
   max-width: 600px;
-  margin: 30px auto;
+  margin: 40px auto;
 }
 .weather-app {
   padding: 20px;
   border: 1px solid #dadde1;
   border-radius: 15px;
-  background: rgba(167, 206, 253, 0.3);
+  background: rgba(255, 253, 237, 0.8);
+  color: #ff2ed2;
 }
 overview {
   margin: 10px;
 }
 
 .weather-temperature img {
-  margin-right: 10px;
-  height: 64px;
-  width: 64px;
+  margin-left: 10px;
+  margin-right: 15px;
+  height: 80px;
+  width: 80px;
 }
 .weather-temperature strong {
   font-size: 64px;
-  line-height: 1;
+  line-height: 80px;
   font-weight: 400;
 }
 .weather-temperature .units {
   font-size: 16px;
   position: relative;
   top: -34px;
-}
-.weather-temperature .active {
-  color: #000;
-  cursor: default;
-}
-.weather-temperature .active:hover {
-  text-decoration: none;
 }
 
 .weather-forecast {
@@ -71,13 +88,25 @@ overview {
 
 .weather-forecast-date {
   font-size: 16px;
-  color: #2b235a;
+  color: #883a92;
 }
 .weather-forecast-temperatures {
   font-size: 13px;
-  color: #54416d;
+  color: #883a92;
 }
 
 .weather-forecast-temperature-min {
   opacity: 0.5;
+}
+
+.updatedLast {
+  text-align: right;
+  font-size: 15px;
+  color: #883a92;
+}
+
+.footer {
+  margin-top: 10px;
+  text-align: center;
+  color: #883a92;
 }
