@@ -46,7 +46,7 @@ li::first-letter {
 .btn-primary:hover {
   color: #883a92;
   background: #e6c0e9;
-  border: 0;
+  border-color: #e6c0e9;
 }
 .location-selector {
   text-align: center;
