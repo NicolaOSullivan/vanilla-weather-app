@@ -33,7 +33,6 @@ function formatDay(timestamp) {
 
 function displayForecast(response) {
   let forecast = response.data.daily;
-
   let forecastElement = document.querySelector("#forecast");
 
   let forecastHTML = `<div class="row">`;
@@ -72,6 +71,7 @@ function getForecast(coordinates) {
   let forecastApiURL = `https://api.shecodes.io/weather/v1/forecast?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
   axios.get(forecastApiURL).then(displayForecast);
 }
+
 function displayTemperature(response) {
   let temperatureElement = document.querySelector("#temperature");
   let cityElement = document.querySelector("#city");
@@ -90,7 +90,6 @@ function displayTemperature(response) {
   windspeedElement.innerHTML = Math.round(response.data.wind.speed);
   dateElement.innerHTML = formatDate(response.data.time * 1000);
   iconElement.setAttribute("src", `${response.data.condition.icon_url}`);
-
   getForecast(response.data.coordinates);
 }
 
@@ -105,7 +104,27 @@ function handleSubmit(event) {
   let cityInputElement = document.querySelector("#city-input");
   search(cityInputElement.value);
 }
+function displayWeatherCondition(response) {
+  document.querySelector("#city").innerHTML = response.data.name;
+  let temperature = Math.round(response.data.main.temp);
+  document.querySelector(
+    "#cityTemp"
+  ).innerHTML = `It is currently ${temperature}° in ${response.data.name}`;
+  document.querySelector("#description").innerHTML =
+    response.data.weather[0].main;
+}
 
+function searchLocation(position) {
+  let lon = position.coords.longitude;
+  let lat = position.coords.latitude;
+  let apiKey = "cb5f738714fe5atbaff9a9f3oa9f3610";
+  let apiUrl = `https://api.shecodes.io/weather/v1/current?lon=${lon}&lat=${lat}&key=${apiKey}&units=metric`;
+  axios.get(apiUrl).then(displayTemperature);
+}
+function getCurrentLocation(event) {
+  event.preventDefault();
+  navigator.geolocation.getCurrentPosition(searchLocation);
+}
 function displayCelsiusTemp(event) {
   event.preventDefault();
   celsiusLink.classList.add("active");
@@ -117,5 +136,8 @@ let celsiusTemperature = null;
 
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", handleSubmit);
+
+let currentLocationButton = document.querySelector("#current-location-button");
+currentLocationButton.addEventListener("click", getCurrentLocation);
 
 search("Dublin");
